@@ -1,16 +1,16 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container">
+<div class="container" style="margin-top: 150px; margin-bottom: 100px">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-12" style="padding: 0">
 
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
-                        <div class="form-group row" style="margin-bottom: 0">
+                        <div class="form-group row text-center" style="margin-bottom: 0">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
@@ -24,7 +24,7 @@
                             </div>
                         </div>
 
-                        <div class="form-group row" style="margin-bottom: 0">
+                        <div class="form-group row text-center" style="margin-bottom: 0">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -35,6 +35,19 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row justify-content-center mt-2 text-center">
+                            <div class="col-md-6 offset-md-4 ">
+                                {!! htmlFormSnippet([
+                                    "theme" => "light",
+                                    "size" => "normal",
+                                    "tabindex" => "3",
+                                    "callback" => "callbackFunction",
+                                    "expired-callback" => "expiredCallbackFunction",
+                                    "error-callback" => "errorCallbackFunction",
+                                ]) !!}
                             </div>
                         </div>
 
